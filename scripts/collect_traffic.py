@@ -23,7 +23,7 @@ def get_org_repos(org: str) -> list[dict]:
     repos = []
     page = 1
     while True:
-        url = f"{BASE_URL}/orgs/{org}/repos?per_page=100&page={page}"
+        url = f"{BASE_URL}/users/{org}/repos?per_page=100&page={page}"
         response = requests.get(url, headers=HEADERS)
         response.raise_for_status()
         data = response.json()
