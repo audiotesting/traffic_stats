@@ -1,0 +1,23 @@
+{
+  "collected_at": "2026-08-18T06:56:33.273719+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/miceSVK",
+      "title": "Overview",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/miceSVK/actions",
+      "title": "/actions",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/miceSVK/deployments",
+      "title": "/deployments",
+      "count": 2,
+      "uniques": 1
+    }
+  ]
+}

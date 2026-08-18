@@ -1,0 +1,23 @@
+{
+  "collected_at": "2026-08-18T06:56:30.868677+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/keyboardsSVK",
+      "title": "Overview",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/keyboardsSVK/actions",
+      "title": "/actions",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/keyboardsSVK/deployments",
+      "title": "/deployments",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
+}
