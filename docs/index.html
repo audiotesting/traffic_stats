@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Stats - audiotesting</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f6f8fa;
+            color: #24292f;
+            padding: 24px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { font-size: 26px; margin-bottom: 4px; }
+        .subtitle { color: #57606a; margin-bottom: 20px; font-size: 14px; }
+        .updated { color: #57606a; font-size: 12px; margin-bottom: 24px; font-style: italic; }
+
+        /* Summary Cards */
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 32px; }
+        .card {
+            background: white;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .card-label { font-size: 12px; color: #57606a; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .card-value { font-size: 36px; font-weight: 700; }
+        .card-value.blue { color: #0969da; }
+        .card-value.green { color: #1a7f37; }
+        .card-value.orange { color: #9a6700; }
+        .card-value.purple { color: #8250df; }
+
+        /* Tables */
+        .section-title { font-size: 18px; font-weight: 600; margin: 28px 0 12px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+        th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #eaeef2; }
+        th { background: #f6f8fa; font-weight: 600; font-size: 12px; text-transform: uppercase; color: #57606a; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f6f8fa; }
+        td.num { text-align: right; font-variant-numeric: tabular-nums; }
+        th.num { text-align: right; }
+
+        /* Chart */
+        .chart-box {
+            background: white;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .chart-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+        .chart { display: flex; align-items: flex-end; gap: 3px; height: 120px; }
+        .chart-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+        .chart-bar { width: 80%; border-radius: 3px 3px 0 0; min-height: 2px; }
+        .chart-bar.views { background: #0969da; }
+        .chart-bar.visitors { background: #1a7f37; }
+        .chart-date { font-size: 9px; color: #57606a; margin-top: 4px; writing-mode: vertical-rl; transform: rotate(180deg); height: 40px; }
+        .legend { display: flex; gap: 16px; margin-top: 10px; font-size: 12px; color: #57606a; }
+        .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+
+        /* Repo sections */
+        .repo-block { margin-bottom: 36px; padding-top: 16px; border-top: 2px solid #eaeef2; }
+        .repo-name { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+        .repo-name a { color: #0969da; text-decoration: none; }
+        .repo-name a:hover { text-decoration: underline; }
+
+        /* Status */
+        .loading { text-align: center; padding: 40px; color: #57606a; }
+        .error { text-align: center; padding: 20px; color: #cf222e; background: #ffebe9; border-radius: 6px; margin: 12px 0; font-size: 13px; }
+
+        footer { text-align: center; color: #57606a; font-size: 12px; margin-top: 48px; padding-top: 16px; border-top: 1px solid #d0d7de; }
+        footer a { color: #0969da; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Traffic Statistics</h1>
+        <p class="subtitle">Daily traffic data for all repositories under <a href="https://github.com/audiotesting">github.com/audiotesting</a></p>
+        <p class="updated" id="updatedAt">Loading...</p>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-label">Total Views (14 days)</div>
+                <div class="card-value blue" id="cardViews">—</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Unique Visitors (14 days)</div>
+                <div class="card-value green" id="cardVisitors">—</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Total Clones (14 days)</div>
+                <div class="card-value orange" id="cardClones">—</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Repositories Tracked</div>
+                <div class="card-value purple" id="cardRepos">—</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Overview by Repository</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Repository</th>
+                    <th class="num">Views</th>
+                    <th class="num">Unique Visitors</th>
+                    <th class="num">Clones</th>
+                    <th class="num">Unique Cloners</th>
+                    <th>Top Referrer</th>
+                </tr>
+            </thead>
+            <tbody id="overviewBody">
+                <tr><td colspan="6" class="loading">Loading data...</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title">Per Repository Details</h2>
+        <div id="repoSections"><p class="loading">Loading...</p></div>
+
+        <footer>
+            Auto-collected daily at 23:00 UTC via GitHub Actions&nbsp;·&nbsp;
+            <a href="https://github.com/audiotesting/traffic_stats">View source repository</a>
+        </footer>
+    </div>
+
+    <script>
+    (function() {
+        var BASE = 'https://raw.githubusercontent.com/audiotesting/traffic_stats/main/data';
+
+        function fetchJSON(url) {
+            return fetch(url).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; });
+        }
+
+        function fetchCSV(url) {
+            return fetch(url).then(function(r) {
+                if (!r.ok) return [];
+                return r.text().then(function(text) {
+                    var lines = text.trim().split('\n');
+                    if (lines.length < 2) return [];
+                    var headers = lines[0].split(',').map(function(h) { return h.trim(); });
+                    return lines.slice(1).map(function(line) {
+                        var vals = line.split(',');
+                        var obj = {};
+                        headers.forEach(function(h, i) { obj[h] = vals[i] ? vals[i].trim() : '0'; });
+                        return obj;
+                    });
+                });
+            }).catch(function() { return []; });
+        }
+
+        function buildBarChart(data, valKey, labelKey, title) {
+            if (!data || data.length === 0) return '';
+            var max = Math.max.apply(null, data.map(function(d) { return parseInt(d[valKey]) || 0; }));
+            if (max === 0) max = 1;
+
+            var html = '<div class="chart-box"><div class="chart-title">' + title + '</div><div class="chart">';
+            data.forEach(function(d) {
+                var val = parseInt(d[valKey]) || 0;
+                var h = Math.max(Math.round((val / max) * 110), 2);
+                var lbl = d[labelKey] ? d[labelKey].slice(5) : '';
+                html += '<div class="chart-col">';
+                html += '<div class="chart-bar views" style="height:' + h + 'px" title="' + val + '"></div>';
+                html += '<div class="chart-date">' + lbl + '</div>';
+                html += '</div>';
+            });
+            html += '</div>';
+            html += '<div class="legend"><span><span class="legend-dot" style="background:#0969da"></span>' + valKey + '</span></div>';
+            html += '</div>';
+            return html;
+        }
+
+        function buildTable(data, cols) {
+            if (!data || data.length === 0) return '<p class="loading">No data available yet.</p>';
+            var html = '<table><thead><tr>';
+            cols.forEach(function(c) {
+                html += '<th' + (c.num ? ' class="num"' : '') + '>' + c.label + '</th>';
+            });
+            html += '</tr></thead><tbody>';
+            data.slice().reverse().forEach(function(row) {
+                html += '<tr>';
+                cols.forEach(function(c) {
+                    html += '<td' + (c.num ? ' class="num"' : '') + '>' + (row[c.key] || '0') + '</td>';
+                });
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            return html;
+        }
+
+        async function init() {
+            var summary = await fetchJSON(BASE + '/latest_summary.json');
+
+            if (!summary || summary.length === 0) {
+                document.getElementById('overviewBody').innerHTML = '<tr><td colspan="6" class="loading">No data collected yet. The workflow runs daily at 23:00 UTC — check back tomorrow!</td></tr>';
+                document.getElementById('repoSections').innerHTML = '';
+                return;
+            }
+
+            // Cards
+            var totalViews = 0, totalVisitors = 0, totalClones = 0;
+            summary.forEach(function(r) {
+                totalViews += r.views_14d_total || 0;
+                totalVisitors += r.unique_visitors_14d || 0;
+                totalClones += r.clones_14d_total || 0;
+            });
+            document.getElementById('cardViews').textContent = totalViews.toLocaleString();
+            document.getElementById('cardVisitors').textContent = totalVisitors.toLocaleString();
+            document.getElementById('cardClones').textContent = totalClones.toLocaleString();
+            document.getElementById('cardRepos').textContent = summary.length;
+            document.getElementById('updatedAt').textContent = 'Last updated: ' + (summary[0].collected_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
+
+            // Overview table
+            var tbody = '';
+            summary.forEach(function(r) {
+                tbody += '<tr>';
+                tbody += '<td><strong><a href="https://github.com/audiotesting/' + r.repository + '">' + r.repository + '</a></strong></td>';
+                tbody += '<td class="num">' + (r.views_14d_total || 0) + '</td>';
+                tbody += '<td class="num">' + (r.unique_visitors_14d || 0) + '</td>';
+                tbody += '<td class="num">' + (r.clones_14d_total || 0) + '</td>';
+                tbody += '<td class="num">' + (r.unique_cloners_14d || 0) + '</td>';
+                tbody += '<td>' + (r.top_referrer || '—') + '</td>';
+                tbody += '</tr>';
+            });
+            document.getElementById('overviewBody').innerHTML = tbody;
+
+            // Per-repo details
+            var sections = '';
+            for (var i = 0; i < summary.length; i++) {
+                var repo = summary[i];
+                var views = await fetchCSV(BASE + '/views/' + repo.repository + '.csv');
+                var clones = await fetchCSV(BASE + '/clones/' + repo.repository + '.csv');
+
+                sections += '<div class="repo-block">';
+                sections += '<div class="repo-name"><a href="https://github.com/audiotesting/' + repo.repository + '">📁 ' + repo.repository + '</a></div>';
+
+                // Views chart
+                sections += buildBarChart(views, 'views', 'date', 'Daily Page Views');
+
+                // Views table
+                sections += buildTable(views, [
+                    { key: 'date', label: 'Date', num: false },
+                    { key: 'views', label: 'Views', num: true },
+                    { key: 'unique_visitors', label: 'Unique Visitors', num: true }
+                ]);
+
+                // Clones table
+                if (clones.length > 0) {
+                    sections += buildTable(clones, [
+                        { key: 'date', label: 'Date', num: false },
+                        { key: 'clones', label: 'Clones', num: true },
+                        { key: 'unique_cloners', label: 'Unique Cloners', num: true }
+                    ]);
+                }
+
+                sections += '</div>';
+            }
+            document.getElementById('repoSections').innerHTML = sections;
+        }
+
+        init();
+    })();
+    </script>
+</body>
+</html>
+
