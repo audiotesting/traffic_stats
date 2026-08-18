@@ -14,25 +14,49 @@
             padding: 24px;
             line-height: 1.5;
         }
-        .container { max-width: 1100px; margin: 0 auto; }
+        .container { max-width: 1200px; margin: 0 auto; }
         h1 { font-size: 26px; margin-bottom: 4px; }
         .subtitle { color: #57606a; margin-bottom: 20px; font-size: 14px; }
         .updated { color: #57606a; font-size: 12px; margin-bottom: 24px; font-style: italic; }
 
-        /* Summary Cards */
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 32px; }
-        .card {
-            background: white;
+        /* 3x3 Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: auto 1fr 1fr 1fr;
+            gap: 1px;
+            background: #d0d7de;
             border: 1px solid #d0d7de;
             border-radius: 8px;
-            padding: 20px;
+            overflow: hidden;
+            margin-bottom: 32px;
         }
-        .card-label { font-size: 12px; color: #57606a; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-        .card-value { font-size: 36px; font-weight: 700; }
-        .card-value.blue { color: #0969da; }
-        .card-value.green { color: #1a7f37; }
-        .card-value.orange { color: #9a6700; }
-        .card-value.purple { color: #8250df; }
+        .grid-cell {
+            background: white;
+            padding: 16px;
+            text-align: center;
+        }
+        .grid-header {
+            background: #f6f8fa;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #57606a;
+            padding: 12px;
+        }
+        .grid-row-label {
+            background: #f6f8fa;
+            font-weight: 600;
+            font-size: 13px;
+            color: #24292f;
+            display: flex;
+            align-items: center;
+            padding-left: 16px;
+        }
+        .metric-label { font-size: 11px; color: #57606a; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+        .metric-value { font-size: 28px; font-weight: 700; }
+        .metric-value.blue { color: #0969da; }
+        .metric-value.green { color: #1a7f37; }
+        .metric-value.orange { color: #9a6700; }
 
         /* Tables */
         .section-title { font-size: 18px; font-weight: 600; margin: 28px 0 12px; }
@@ -52,6 +76,7 @@
         tr:hover td { background: #f6f8fa; }
         td.num { text-align: right; font-variant-numeric: tabular-nums; }
         th.num { text-align: right; }
+        th.group { background: #e8eaed; }
 
         /* Chart */
         .chart-box {
@@ -91,39 +116,52 @@
         <p class="subtitle">Daily traffic data for all repositories under <a href="https://github.com/audiotesting">github.com/audiotesting</a></p>
         <p class="updated" id="updatedAt">Loading...</p>
 
-        <div class="cards">
-            <div class="card">
-                <div class="card-label">Total Views (14 days)</div>
-                <div class="card-value blue" id="cardViews">—</div>
-            </div>
-            <div class="card">
-                <div class="card-label">Unique Visitors (14 days)</div>
-                <div class="card-value green" id="cardVisitors">—</div>
-            </div>
-            <div class="card">
-                <div class="card-label">Total Clones (14 days)</div>
-                <div class="card-value orange" id="cardClones">—</div>
-            </div>
-            <div class="card">
-                <div class="card-label">Repositories Tracked</div>
-                <div class="card-value purple" id="cardRepos">—</div>
-            </div>
+        <!-- 3x3 Metrics Grid -->
+        <div class="metrics-grid">
+            <div class="grid-cell"></div>
+            <div class="grid-header">All Time</div>
+            <div class="grid-header">30 Days</div>
+            <div class="grid-header">14 Days</div>
+
+            <div class="grid-row-label">Total Views</div>
+            <div class="grid-cell"><div class="metric-value blue" id="viewsAll">—</div></div>
+            <div class="grid-cell"><div class="metric-value blue" id="views30">—</div></div>
+            <div class="grid-cell"><div class="metric-value blue" id="views14">—</div></div>
+
+            <div class="grid-row-label">Unique Visitors</div>
+            <div class="grid-cell"><div class="metric-value green" id="visitorsAll">—</div></div>
+            <div class="grid-cell"><div class="metric-value green" id="visitors30">—</div></div>
+            <div class="grid-cell"><div class="metric-value green" id="visitors14">—</div></div>
+
+            <div class="grid-row-label">Total Clones</div>
+            <div class="grid-cell"><div class="metric-value orange" id="clonesAll">—</div></div>
+            <div class="grid-cell"><div class="metric-value orange" id="clones30">—</div></div>
+            <div class="grid-cell"><div class="metric-value orange" id="clones14">—</div></div>
         </div>
 
         <h2 class="section-title">Overview by Repository</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Repository</th>
-                    <th class="num">Views</th>
-                    <th class="num">Unique Visitors</th>
-                    <th class="num">Clones</th>
-                    <th class="num">Unique Cloners</th>
-                    <th>Top Referrer</th>
+                    <th rowspan="2">Repository</th>
+                    <th colspan="3" class="group">Views</th>
+                    <th colspan="3" class="group">Unique Visitors</th>
+                    <th colspan="3" class="group">Clones</th>
+                </tr>
+                <tr>
+                    <th class="num">All</th>
+                    <th class="num">30d</th>
+                    <th class="num">14d</th>
+                    <th class="num">All</th>
+                    <th class="num">30d</th>
+                    <th class="num">14d</th>
+                    <th class="num">All</th>
+                    <th class="num">30d</th>
+                    <th class="num">14d</th>
                 </tr>
             </thead>
             <tbody id="overviewBody">
-                <tr><td colspan="6" class="loading">Loading data...</td></tr>
+                <tr><td colspan="10" class="loading">Loading data...</td></tr>
             </tbody>
         </table>
 
@@ -159,6 +197,30 @@
                     });
                 });
             }).catch(function() { return []; });
+        }
+
+        function sumByPeriod(data, valueKey, days) {
+            if (!data || data.length === 0) return 0;
+            var cutoff = new Date();
+            cutoff.setDate(cutoff.getDate() - days);
+            return data.reduce(function(sum, row) {
+                if (!days || new Date(row.date) >= cutoff) {
+                    return sum + (parseInt(row[valueKey]) || 0);
+                }
+                return sum;
+            }, 0);
+        }
+
+        function maxByPeriod(data, valueKey, days) {
+            if (!data || data.length === 0) return 0;
+            var cutoff = new Date();
+            cutoff.setDate(cutoff.getDate() - days);
+            var vals = data.filter(function(row) {
+                return !days || new Date(row.date) >= cutoff;
+            }).map(function(row) {
+                return parseInt(row[valueKey]) || 0;
+            });
+            return vals.length > 0 ? Math.max.apply(null, vals) : 0;
         }
 
         function buildBarChart(data, valKey, labelKey, title) {
@@ -204,69 +266,99 @@
             var summary = await fetchJSON(BASE + '/latest_summary.json');
 
             if (!summary || summary.length === 0) {
-                document.getElementById('overviewBody').innerHTML = '<tr><td colspan="6" class="loading">No data collected yet. The workflow runs daily at 23:00 UTC — check back tomorrow!</td></tr>';
+                document.getElementById('overviewBody').innerHTML = '<tr><td colspan="10" class="loading">No data collected yet. The workflow runs daily at 23:00 UTC — check back tomorrow!</td></tr>';
                 document.getElementById('repoSections').innerHTML = '';
                 return;
             }
 
-            // Cards
-            var totalViews = 0, totalVisitors = 0, totalClones = 0;
-            summary.forEach(function(r) {
-                totalViews += r.views_14d_total || 0;
-                totalVisitors += r.unique_visitors_14d || 0;
-                totalClones += r.clones_14d_total || 0;
-            });
-            document.getElementById('cardViews').textContent = totalViews.toLocaleString();
-            document.getElementById('cardVisitors').textContent = totalVisitors.toLocaleString();
-            document.getElementById('cardClones').textContent = totalClones.toLocaleString();
-            document.getElementById('cardRepos').textContent = summary.length;
-            document.getElementById('updatedAt').textContent = 'Last updated: ' + (summary[0].collected_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
-
-            // Overview table
-            var tbody = '';
-            summary.forEach(function(r) {
-                tbody += '<tr>';
-                tbody += '<td><strong><a href="https://github.com/audiotesting/' + r.repository + '">' + r.repository + '</a></strong></td>';
-                tbody += '<td class="num">' + (r.views_14d_total || 0) + '</td>';
-                tbody += '<td class="num">' + (r.unique_visitors_14d || 0) + '</td>';
-                tbody += '<td class="num">' + (r.clones_14d_total || 0) + '</td>';
-                tbody += '<td class="num">' + (r.unique_cloners_14d || 0) + '</td>';
-                tbody += '<td>' + (r.top_referrer || '—') + '</td>';
-                tbody += '</tr>';
-            });
-            document.getElementById('overviewBody').innerHTML = tbody;
-
-            // Per-repo details
-            var sections = '';
+            // Collect all data for aggregation
+            var allRepoData = [];
             for (var i = 0; i < summary.length; i++) {
                 var repo = summary[i];
                 var views = await fetchCSV(BASE + '/views/' + repo.repository + '.csv');
                 var clones = await fetchCSV(BASE + '/clones/' + repo.repository + '.csv');
+                allRepoData.push({ repo: repo, views: views, clones: clones });
+            }
 
+            // Calculate totals for 3x3 grid
+            var viewsAll = 0, views30 = 0, views14 = 0;
+            var visitorsAll = 0, visitors30 = 0, visitors14 = 0;
+            var clonesAll = 0, clones30 = 0, clones14 = 0;
+
+            allRepoData.forEach(function(rd) {
+                viewsAll += sumByPeriod(rd.views, 'views', null);
+                views30 += sumByPeriod(rd.views, 'views', 30);
+                views14 += sumByPeriod(rd.views, 'views', 14);
+
+                visitorsAll += maxByPeriod(rd.views, 'unique_visitors', null);
+                visitors30 += maxByPeriod(rd.views, 'unique_visitors', 30);
+                visitors14 += maxByPeriod(rd.views, 'unique_visitors', 14);
+
+                clonesAll += sumByPeriod(rd.clones, 'clones', null);
+                clones30 += sumByPeriod(rd.clones, 'clones', 30);
+                clones14 += sumByPeriod(rd.clones, 'clones', 14);
+            });
+
+            document.getElementById('viewsAll').textContent = viewsAll.toLocaleString();
+            document.getElementById('views30').textContent = views30.toLocaleString();
+            document.getElementById('views14').textContent = views14.toLocaleString();
+            document.getElementById('visitorsAll').textContent = visitorsAll.toLocaleString();
+            document.getElementById('visitors30').textContent = visitors30.toLocaleString();
+            document.getElementById('visitors14').textContent = visitors14.toLocaleString();
+            document.getElementById('clonesAll').textContent = clonesAll.toLocaleString();
+            document.getElementById('clones30').textContent = clones30.toLocaleString();
+            document.getElementById('clones14').textContent = clones14.toLocaleString();
+
+            document.getElementById('updatedAt').textContent = 'Last updated: ' + (summary[0].collected_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
+
+            // Overview table with time periods
+            var tbody = '';
+            allRepoData.forEach(function(rd) {
+                var vAll = sumByPeriod(rd.views, 'views', null);
+                var v30 = sumByPeriod(rd.views, 'views', 30);
+                var v14 = sumByPeriod(rd.views, 'views', 14);
+                var uvAll = maxByPeriod(rd.views, 'unique_visitors', null);
+                var uv30 = maxByPeriod(rd.views, 'unique_visitors', 30);
+                var uv14 = maxByPeriod(rd.views, 'unique_visitors', 14);
+                var cAll = sumByPeriod(rd.clones, 'clones', null);
+                var c30 = sumByPeriod(rd.clones, 'clones', 30);
+                var c14 = sumByPeriod(rd.clones, 'clones', 14);
+
+                tbody += '<tr>';
+                tbody += '<td><strong><a href="https://github.com/audiotesting/' + rd.repo.repository + '">' + rd.repo.repository + '</a></strong></td>';
+                tbody += '<td class="num">' + vAll + '</td>';
+                tbody += '<td class="num">' + v30 + '</td>';
+                tbody += '<td class="num">' + v14 + '</td>';
+                tbody += '<td class="num">' + uvAll + '</td>';
+                tbody += '<td class="num">' + uv30 + '</td>';
+                tbody += '<td class="num">' + uv14 + '</td>';
+                tbody += '<td class="num">' + cAll + '</td>';
+                tbody += '<td class="num">' + c30 + '</td>';
+                tbody += '<td class="num">' + c14 + '</td>';
+                tbody += '</tr>';
+            });
+            document.getElementById('overviewBody').innerHTML = tbody;
+
+            // Per-repo details (unchanged)
+            var sections = '';
+            allRepoData.forEach(function(rd) {
                 sections += '<div class="repo-block">';
-                sections += '<div class="repo-name"><a href="https://github.com/audiotesting/' + repo.repository + '">📁 ' + repo.repository + '</a></div>';
-
-                // Views chart
-                sections += buildBarChart(views, 'views', 'date', 'Daily Page Views');
-
-                // Views table
-                sections += buildTable(views, [
+                sections += '<div class="repo-name"><a href="https://github.com/audiotesting/' + rd.repo.repository + '">📁 ' + rd.repo.repository + '</a></div>';
+                sections += buildBarChart(rd.views, 'views', 'date', 'Daily Page Views');
+                sections += buildTable(rd.views, [
                     { key: 'date', label: 'Date', num: false },
                     { key: 'views', label: 'Views', num: true },
                     { key: 'unique_visitors', label: 'Unique Visitors', num: true }
                 ]);
-
-                // Clones table
-                if (clones.length > 0) {
-                    sections += buildTable(clones, [
+                if (rd.clones.length > 0) {
+                    sections += buildTable(rd.clones, [
                         { key: 'date', label: 'Date', num: false },
                         { key: 'clones', label: 'Clones', num: true },
                         { key: 'unique_cloners', label: 'Unique Cloners', num: true }
                     ]);
                 }
-
                 sections += '</div>';
-            }
+            });
             document.getElementById('repoSections').innerHTML = sections;
         }
 
