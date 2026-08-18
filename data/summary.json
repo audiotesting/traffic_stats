@@ -1,0 +1,95 @@
+{
+  "last_updated": "2026-08-18",
+  "repos": [
+    {
+      "repo": "keyboards3",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "keyboardsESP",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "keyboardsUA",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "mice",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "miceESP",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "miceITA",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "micePOL",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "miceSVK",
+      "total_views": 6,
+      "total_uniques": 1,
+      "days_tracked": 14
+    },
+    {
+      "repo": "miceUA",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "headphones",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "Headphones-ES",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "Headphones-IT",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "Headphones-PL",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    },
+    {
+      "repo": "Headphones-SK",
+      "total_views": 3,
+      "total_uniques": 1,
+      "days_tracked": 14
+    },
+    {
+      "repo": "Headphones-UA",
+      "total_views": 0,
+      "total_uniques": 0,
+      "days_tracked": 14
+    }
+  ]
+}
