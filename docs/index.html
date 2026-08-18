@@ -97,10 +97,62 @@
         .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
 
         /* Repo sections */
-        .repo-block { margin-bottom: 36px; padding-top: 16px; border-top: 2px solid #eaeef2; }
+        .repo-block { margin-bottom: 36px; padding-top: 16px; border-top: 2px solid #eaeef2; scroll-margin-top: 80px; }
         .repo-name { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
         .repo-name a { color: #0969da; text-decoration: none; }
         .repo-name a:hover { text-decoration: underline; }
+
+        /* Back to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 90px;
+            text-align: center;
+            padding: 10px;
+            background: #e48819;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-to-top:hover {
+            background: #c77516;
+        }
+
+        /* Quick Jump Links */
+        .quick-jump {
+            background: white;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        .quick-jump-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #57606a; }
+        .quick-jump-links { display: flex; flex-wrap: wrap; gap: 8px; }
+        .quick-jump-links a {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #f6f8fa;
+            border: 1px solid #d0d7de;
+            border-radius: 4px;
+            color: #0969da;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .quick-jump-links a:hover {
+            background: #e8eaed;
+        }
 
         /* Status */
         .loading { text-align: center; padding: 40px; color: #57606a; }
@@ -112,7 +164,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>📊 Traffic Statistics</h1>
+        <h1 id="top">📊 Traffic Statistics</h1>
         <p class="subtitle">Daily traffic data for all repositories under <a href="https://github.com/audiotesting">github.com/audiotesting</a></p>
         <p class="updated" id="updatedAt">Loading...</p>
 
@@ -165,6 +217,12 @@
             </tbody>
         </table>
 
+        <!-- Quick Jump Links -->
+        <div class="quick-jump" id="quickJump" style="display:none;">
+            <div class="quick-jump-title">Jump to Repository:</div>
+            <div class="quick-jump-links" id="quickJumpLinks"></div>
+        </div>
+
         <h2 class="section-title">Per Repository Details</h2>
         <div id="repoSections"><p class="loading">Loading...</p></div>
 
@@ -174,9 +232,22 @@
         </footer>
     </div>
 
+    <!-- Back to Top Button -->
+    <a href="#top" class="scroll-to-top" id="scrollToTop">↑ Top</a>
+
     <script>
     (function() {
         var BASE = 'https://raw.githubusercontent.com/audiotesting/traffic_stats/main/data';
+
+        // Back to Top Button
+        var scrollBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
 
         function fetchJSON(url) {
             return fetch(url).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; });
@@ -311,8 +382,9 @@
 
             document.getElementById('updatedAt').textContent = 'Last updated: ' + (summary[0].collected_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
 
-            // Overview table with time periods
+            // Overview table with time periods and anchor links
             var tbody = '';
+            var jumpLinks = '';
             allRepoData.forEach(function(rd) {
                 var vAll = sumByPeriod(rd.views, 'views', null);
                 var v30 = sumByPeriod(rd.views, 'views', 30);
@@ -325,7 +397,7 @@
                 var c14 = sumByPeriod(rd.clones, 'clones', 14);
 
                 tbody += '<tr>';
-                tbody += '<td><strong><a href="https://github.com/audiotesting/' + rd.repo.repository + '">' + rd.repo.repository + '</a></strong></td>';
+                tbody += '<td><strong><a href="#repo-' + rd.repo.repository + '">' + rd.repo.repository + '</a></strong></td>';
                 tbody += '<td class="num">' + vAll + '</td>';
                 tbody += '<td class="num">' + v30 + '</td>';
                 tbody += '<td class="num">' + v14 + '</td>';
@@ -336,13 +408,18 @@
                 tbody += '<td class="num">' + c30 + '</td>';
                 tbody += '<td class="num">' + c14 + '</td>';
                 tbody += '</tr>';
+
+                jumpLinks += '<a href="#repo-' + rd.repo.repository + '">' + rd.repo.repository + '</a>';
             });
             document.getElementById('overviewBody').innerHTML = tbody;
+            document.getElementById('quickJumpLinks').innerHTML = jumpLinks;
+            document.getElementById('quickJump').style.display = 'block';
 
-            // Per-repo details (unchanged)
+            // Per-repo details with anchors
             var sections = '';
             allRepoData.forEach(function(rd) {
-                sections += '<div class="repo-block">';
+                sections += '<div class="repo-block" id="repo-' + rd.repo.repository + '">';
+                sections += '<a name="' + rd.repo.repository + '"></a>';
                 sections += '<div class="repo-name"><a href="https://github.com/audiotesting/' + rd.repo.repository + '">📁 ' + rd.repo.repository + '</a></div>';
                 sections += buildBarChart(rd.views, 'views', 'date', 'Daily Page Views');
                 sections += buildTable(rd.views, [
