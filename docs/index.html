@@ -19,6 +19,20 @@
         .subtitle { color: #57606a; margin-bottom: 20px; font-size: 14px; }
         .updated { color: #57606a; font-size: 12px; margin-bottom: 24px; font-style: italic; }
 
+        /* Legend Box */
+        .legend-box {
+            background: white;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+        }
+        .legend-box-title { font-size: 14px; font-weight: 600; margin-bottom: 10px; color: #24292f; }
+        .legend-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 8px; }
+        .legend-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: #24292f; }
+        .legend-icon { font-size: 16px; flex-shrink: 0; }
+        .legend-term { font-weight: 600; }
+
         /* 3x3 Grid */
         .metrics-grid {
             display: grid;
@@ -72,7 +86,6 @@
         th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #eaeef2; }
         th { background: #f6f8fa; font-weight: 600; font-size: 12px; text-transform: uppercase; color: #57606a; }
         tr:last-child td { border-bottom: none; }
-        tr:hover td { background: rgba(246, 248, 250, 0.5); }
         td.num { text-align: right; font-variant-numeric: tabular-nums; }
         th.num { text-align: right; }
         th.group { background: #e8eaed; text-align: center; }
@@ -166,6 +179,22 @@
         }
         .quick-jump-links a:hover { background: #e8eaed; }
 
+        /* Heatmap scale legend */
+        .heatmap-legend {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: #57606a;
+            margin-bottom: 16px;
+        }
+        .heatmap-swatch {
+            width: 20px;
+            height: 14px;
+            border-radius: 2px;
+            border: 1px solid #d0d7de;
+        }
+
         /* Status */
         .loading { text-align: center; padding: 40px; color: #57606a; }
 
@@ -178,6 +207,37 @@
         <h1 id="top">📊 Traffic Statistics</h1>
         <p class="subtitle">Daily traffic data for all repositories under <a href="https://github.com/audiotesting">github.com/audiotesting</a></p>
         <p class="updated" id="updatedAt">Loading...</p>
+
+        <!-- Legend / Glossary -->
+        <div class="legend-box">
+            <div class="legend-box-title">📖 What do these terms mean?</div>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="legend-icon">👁️</span>
+                    <span><span class="legend-term">Views</span> — How many times a page was opened in a browser (including repeat visits by the same person).</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">👤</span>
+                    <span><span class="legend-term">Unique Visitors</span> — How many different people visited the page (each person counted only once).</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">📥</span>
+                    <span><span class="legend-term">Clones</span> — How many times the repository was downloaded (via terminal or automated tools — no browser visit needed).</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">👥</span>
+                    <span><span class="legend-term">Unique Cloners</span> — How many different people or systems downloaded the repository.</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">📁</span>
+                    <span><span class="legend-term">Repository</span> — A project page on GitHub (each one is a separate "child page" of the organization).</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🗓️</span>
+                    <span><span class="legend-term">Time periods</span> — "14d" = last 14 days, "30d" = last 30 days, "All" = all time since tracking started.</span>
+                </div>
+            </div>
+        </div>
 
         <!-- 3x3 Metrics Grid -->
         <div class="metrics-grid">
@@ -203,6 +263,19 @@
         </div>
 
         <h2 class="section-title">Overview by Repository</h2>
+
+        <!-- Heatmap scale -->
+        <div class="heatmap-legend">
+            <span>Color scale:</span>
+            <div class="heatmap-swatch" style="background: #ffffff;"></div>
+            <span>Low</span>
+            <div class="heatmap-swatch" style="background: #d4e5f7;"></div>
+            <div class="heatmap-swatch" style="background: #a8cbef;"></div>
+            <div class="heatmap-swatch" style="background: #6fa8e2;"></div>
+            <div class="heatmap-swatch" style="background: #3d7fc4;"></div>
+            <span>High</span>
+        </div>
+
         <table id="overviewTable">
             <thead>
                 <tr>
@@ -260,15 +333,19 @@
             }
         });
 
-        // Heatmap color function (blue/gray scale)
+        // Fixed Heatmap color function — per-column scaling with power curve
         function getHeatmapColor(value, maxValue) {
-            if (value === 0 || maxValue === 0) return 'background: #ffffff';
-            var intensity = Math.min(value / maxValue, 1);
-            // Range from light gray-blue to deeper blue
-            var r = Math.round(235 - (intensity * 95));  // 235 -> 140
-            var g = Math.round(240 - (intensity * 80));  // 240 -> 160
-            var b = Math.round(250 - (intensity * 30));  // 250 -> 220
-            return 'background: rgb(' + r + ',' + g + ',' + b + ')';
+            if (!maxValue || maxValue === 0 || !value || value === 0) {
+                return '';
+            }
+            // Use power curve (0.5) for better visual spread between values
+            var intensity = Math.pow(value / maxValue, 0.5);
+            // Blue scale: white (#fff) → light blue (#d4e5f7) → deep blue (#3d7fc4)
+            var r = Math.round(255 - (intensity * 194));  // 255 → 61
+            var g = Math.round(255 - (intensity * 128));  // 255 → 127
+            var b = Math.round(255 - (intensity * 59));   // 255 → 196
+            var textColor = intensity > 0.7 ? '#ffffff' : '#24292f';
+            return 'background-color: rgb(' + r + ',' + g + ',' + b + '); color: ' + textColor + ';';
         }
 
         function fetchJSON(url) {
@@ -294,26 +371,19 @@
 
         function sumByPeriod(data, valueKey, days) {
             if (!data || data.length === 0) return 0;
+            if (!days) {
+                return data.reduce(function(sum, row) {
+                    return sum + (parseInt(row[valueKey]) || 0);
+                }, 0);
+            }
             var cutoff = new Date();
             cutoff.setDate(cutoff.getDate() - days);
             return data.reduce(function(sum, row) {
-                if (!days || new Date(row.date) >= cutoff) {
+                if (new Date(row.date) >= cutoff) {
                     return sum + (parseInt(row[valueKey]) || 0);
                 }
                 return sum;
             }, 0);
-        }
-
-        function maxByPeriod(data, valueKey, days) {
-            if (!data || data.length === 0) return 0;
-            var cutoff = new Date();
-            cutoff.setDate(cutoff.getDate() - days);
-            var vals = data.filter(function(row) {
-                return !days || new Date(row.date) >= cutoff;
-            }).map(function(row) {
-                return parseInt(row[valueKey]) || 0;
-            });
-            return vals.length > 0 ? Math.max.apply(null, vals) : 0;
         }
 
         function buildBarChart(data, valKey, labelKey, title) {
@@ -404,9 +474,9 @@
 
             document.getElementById('updatedAt').textContent = 'Last updated: ' + (summary[0].collected_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
 
-            // Calculate max values per column for heatmap
-            var maxValues = { vAll: 0, v30: 0, v14: 0, uvAll: 0, uv30: 0, uv14: 0, cAll: 0, c30: 0, c14: 0 };
+            // Calculate max values per COLUMN for heatmap
             var rowData = [];
+            var maxValues = { vAll: 0, v30: 0, v14: 0, uvAll: 0, uv30: 0, uv14: 0, cAll: 0, c30: 0, c14: 0 };
 
             allRepoData.forEach(function(rd) {
                 var row = {
@@ -426,7 +496,7 @@
                 });
             });
 
-            // Overview table with heatmap colors and both links
+            // Overview table with heatmap and both links
             var tbody = '';
             var jumpLinks = '';
             allRepoData.forEach(function(rd, idx) {
