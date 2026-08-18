@@ -52,7 +52,6 @@
             align-items: center;
             padding-left: 16px;
         }
-        .metric-label { font-size: 11px; color: #57606a; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
         .metric-value { font-size: 28px; font-weight: 700; }
         .metric-value.blue { color: #0969da; }
         .metric-value.green { color: #1a7f37; }
@@ -73,10 +72,31 @@
         th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #eaeef2; }
         th { background: #f6f8fa; font-weight: 600; font-size: 12px; text-transform: uppercase; color: #57606a; }
         tr:last-child td { border-bottom: none; }
-        tr:hover td { background: #f6f8fa; }
+        tr:hover td { background: rgba(246, 248, 250, 0.5); }
         td.num { text-align: right; font-variant-numeric: tabular-nums; }
         th.num { text-align: right; }
-        th.group { background: #e8eaed; }
+        th.group { background: #e8eaed; text-align: center; }
+
+        /* Repo name cell with both links */
+        .repo-cell { white-space: nowrap; }
+        .repo-cell .anchor-link {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background: #f6f8fa;
+            border: 1px solid #d0d7de;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 11px;
+            margin-right: 6px;
+            color: #57606a;
+            vertical-align: middle;
+        }
+        .repo-cell .anchor-link:hover { background: #e8eaed; color: #24292f; }
+        .repo-cell .repo-link { color: #0969da; text-decoration: none; font-weight: 600; }
+        .repo-cell .repo-link:hover { text-decoration: underline; }
 
         /* Chart */
         .chart-box {
@@ -91,7 +111,6 @@
         .chart-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
         .chart-bar { width: 80%; border-radius: 3px 3px 0 0; min-height: 2px; }
         .chart-bar.views { background: #0969da; }
-        .chart-bar.visitors { background: #1a7f37; }
         .chart-date { font-size: 9px; color: #57606a; margin-top: 4px; writing-mode: vertical-rl; transform: rotate(180deg); height: 40px; }
         .legend { display: flex; gap: 16px; margin-top: 10px; font-size: 12px; color: #57606a; }
         .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
@@ -122,13 +141,8 @@
             transition: opacity 0.3s, visibility 0.3s;
             z-index: 1000;
         }
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        .scroll-to-top:hover {
-            background: #c77516;
-        }
+        .scroll-to-top.visible { opacity: 1; visibility: visible; }
+        .scroll-to-top:hover { background: #c77516; }
 
         /* Quick Jump Links */
         .quick-jump {
@@ -150,13 +164,10 @@
             text-decoration: none;
             font-size: 12px;
         }
-        .quick-jump-links a:hover {
-            background: #e8eaed;
-        }
+        .quick-jump-links a:hover { background: #e8eaed; }
 
         /* Status */
         .loading { text-align: center; padding: 40px; color: #57606a; }
-        .error { text-align: center; padding: 20px; color: #cf222e; background: #ffebe9; border-radius: 6px; margin: 12px 0; font-size: 13px; }
 
         footer { text-align: center; color: #57606a; font-size: 12px; margin-top: 48px; padding-top: 16px; border-top: 1px solid #d0d7de; }
         footer a { color: #0969da; text-decoration: none; }
@@ -192,7 +203,7 @@
         </div>
 
         <h2 class="section-title">Overview by Repository</h2>
-        <table>
+        <table id="overviewTable">
             <thead>
                 <tr>
                     <th rowspan="2">Repository</th>
@@ -248,6 +259,17 @@
                 scrollBtn.classList.remove('visible');
             }
         });
+
+        // Heatmap color function (blue/gray scale)
+        function getHeatmapColor(value, maxValue) {
+            if (value === 0 || maxValue === 0) return 'background: #ffffff';
+            var intensity = Math.min(value / maxValue, 1);
+            // Range from light gray-blue to deeper blue
+            var r = Math.round(235 - (intensity * 95));  // 235 -> 140
+            var g = Math.round(240 - (intensity * 80));  // 240 -> 160
+            var b = Math.round(250 - (intensity * 30));  // 250 -> 220
+            return 'background: rgb(' + r + ',' + g + ',' + b + ')';
+        }
 
         function fetchJSON(url) {
             return fetch(url).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; });
@@ -361,9 +383,9 @@
                 views30 += sumByPeriod(rd.views, 'views', 30);
                 views14 += sumByPeriod(rd.views, 'views', 14);
 
-                visitorsAll += maxByPeriod(rd.views, 'unique_visitors', null);
-                visitors30 += maxByPeriod(rd.views, 'unique_visitors', 30);
-                visitors14 += maxByPeriod(rd.views, 'unique_visitors', 14);
+                visitorsAll += sumByPeriod(rd.views, 'unique_visitors', null);
+                visitors30 += sumByPeriod(rd.views, 'unique_visitors', 30);
+                visitors14 += sumByPeriod(rd.views, 'unique_visitors', 14);
 
                 clonesAll += sumByPeriod(rd.clones, 'clones', null);
                 clones30 += sumByPeriod(rd.clones, 'clones', 30);
@@ -382,31 +404,48 @@
 
             document.getElementById('updatedAt').textContent = 'Last updated: ' + (summary[0].collected_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
 
-            // Overview table with time periods and anchor links
+            // Calculate max values per column for heatmap
+            var maxValues = { vAll: 0, v30: 0, v14: 0, uvAll: 0, uv30: 0, uv14: 0, cAll: 0, c30: 0, c14: 0 };
+            var rowData = [];
+
+            allRepoData.forEach(function(rd) {
+                var row = {
+                    vAll: sumByPeriod(rd.views, 'views', null),
+                    v30: sumByPeriod(rd.views, 'views', 30),
+                    v14: sumByPeriod(rd.views, 'views', 14),
+                    uvAll: sumByPeriod(rd.views, 'unique_visitors', null),
+                    uv30: sumByPeriod(rd.views, 'unique_visitors', 30),
+                    uv14: sumByPeriod(rd.views, 'unique_visitors', 14),
+                    cAll: sumByPeriod(rd.clones, 'clones', null),
+                    c30: sumByPeriod(rd.clones, 'clones', 30),
+                    c14: sumByPeriod(rd.clones, 'clones', 14)
+                };
+                rowData.push(row);
+                Object.keys(maxValues).forEach(function(k) {
+                    if (row[k] > maxValues[k]) maxValues[k] = row[k];
+                });
+            });
+
+            // Overview table with heatmap colors and both links
             var tbody = '';
             var jumpLinks = '';
-            allRepoData.forEach(function(rd) {
-                var vAll = sumByPeriod(rd.views, 'views', null);
-                var v30 = sumByPeriod(rd.views, 'views', 30);
-                var v14 = sumByPeriod(rd.views, 'views', 14);
-                var uvAll = maxByPeriod(rd.views, 'unique_visitors', null);
-                var uv30 = maxByPeriod(rd.views, 'unique_visitors', 30);
-                var uv14 = maxByPeriod(rd.views, 'unique_visitors', 14);
-                var cAll = sumByPeriod(rd.clones, 'clones', null);
-                var c30 = sumByPeriod(rd.clones, 'clones', 30);
-                var c14 = sumByPeriod(rd.clones, 'clones', 14);
+            allRepoData.forEach(function(rd, idx) {
+                var row = rowData[idx];
 
                 tbody += '<tr>';
-                tbody += '<td><strong><a href="#repo-' + rd.repo.repository + '">' + rd.repo.repository + '</a></strong></td>';
-                tbody += '<td class="num">' + vAll + '</td>';
-                tbody += '<td class="num">' + v30 + '</td>';
-                tbody += '<td class="num">' + v14 + '</td>';
-                tbody += '<td class="num">' + uvAll + '</td>';
-                tbody += '<td class="num">' + uv30 + '</td>';
-                tbody += '<td class="num">' + uv14 + '</td>';
-                tbody += '<td class="num">' + cAll + '</td>';
-                tbody += '<td class="num">' + c30 + '</td>';
-                tbody += '<td class="num">' + c14 + '</td>';
+                tbody += '<td class="repo-cell">';
+                tbody += '<a href="#repo-' + rd.repo.repository + '" class="anchor-link" title="Jump to details">⤓</a>';
+                tbody += '<a href="https://github.com/audiotesting/' + rd.repo.repository + '" class="repo-link" target="_blank">' + rd.repo.repository + '</a>';
+                tbody += '</td>';
+                tbody += '<td class="num" style="' + getHeatmapColor(row.vAll, maxValues.vAll) + '">' + row.vAll + '</td>';
+                tbody += '<td class="num" style="' + getHeatmapColor(row.v30, maxValues.v30) + '">' + row.v30 + '</td>';
+                tbody += '<td class="num" style="' + getHeatmapColor(row.v14, maxValues.v14) + '">' + row.v14 + '</td>';
+                tbody += '<td class="num" style="' + getHeatmapColor(row.uvAll, maxValues.uvAll) + '">' + row.uvAll + '</td>';
+                tbody += '<td class="num" style="' + getHeatmapColor(row.uv30, maxValues.uv30) + '">' + row.uv30 + '</td>';
+                tbody += '<td class="num" style="' + getHeatmapColor(row.uv14, maxValues.uv14) + '">' + row.uv14 + '</td>';
+                tbody += '<td class="num" style="' + getHeatmapColor(row.cAll, maxValues.cAll) + '">' + row.cAll + '</td>';
+                tbody += '<td class="num" style="' + getHeatmapColor(row.c30, maxValues.c30) + '">' + row.c30 + '</td>';
+                tbody += '<td class="num" style="' + getHeatmapColor(row.c14, maxValues.c14) + '">' + row.c14 + '</td>';
                 tbody += '</tr>';
 
                 jumpLinks += '<a href="#repo-' + rd.repo.repository + '">' + rd.repo.repository + '</a>';
@@ -419,7 +458,6 @@
             var sections = '';
             allRepoData.forEach(function(rd) {
                 sections += '<div class="repo-block" id="repo-' + rd.repo.repository + '">';
-                sections += '<a name="' + rd.repo.repository + '"></a>';
                 sections += '<div class="repo-name"><a href="https://github.com/audiotesting/' + rd.repo.repository + '">📁 ' + rd.repo.repository + '</a></div>';
                 sections += buildBarChart(rd.views, 'views', 'date', 'Daily Page Views');
                 sections += buildTable(rd.views, [
