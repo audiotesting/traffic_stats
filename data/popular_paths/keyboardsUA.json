@@ -1,4 +1,23 @@
 {
-  "collected_at": "2026-08-19T23:17:17.946774+00:00",
-  "paths": []
+  "collected_at": "2026-08-20T23:19:55.607832+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/keyboardsUA",
+      "title": "Overview",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/keyboardsUA/graphs/traffic",
+      "title": "/graphs/traffic",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/keyboardsUA/pulse",
+      "title": "/pulse",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }

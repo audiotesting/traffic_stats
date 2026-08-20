@@ -1,4 +1,59 @@
 {
-  "collected_at": "2026-08-19T23:17:21.594483+00:00",
-  "paths": []
+  "collected_at": "2026-08-20T23:20:02.168192+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/TestApplications/graphs/code-frequency",
+      "title": "/graphs/code-frequency",
+      "count": 3,
+      "uniques": 2
+    },
+    {
+      "path": "/audiotesting/TestApplications/pulse",
+      "title": "/pulse",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/TestApplications",
+      "title": "Overview",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/TestApplications/actions",
+      "title": "/actions",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/TestApplications/community",
+      "title": "/community",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/TestApplications/graphs/contributors",
+      "title": "/graphs/contributors",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/TestApplications/graphs/traffic",
+      "title": "/graphs/traffic",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/TestApplications/network",
+      "title": "/network",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/TestApplications/network/dependencies",
+      "title": "/network/dependencies",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }

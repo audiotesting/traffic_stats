@@ -1,4 +1,29 @@
 {
-  "collected_at": "2026-08-19T23:17:12.103138+00:00",
-  "paths": []
+  "collected_at": "2026-08-20T23:19:45.425965+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/headphones",
+      "title": "Overview",
+      "count": 4,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/headphones/graphs/traffic",
+      "title": "/graphs/traffic",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/headphones/pulse",
+      "title": "/pulse",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/headphones/deployments/github-pages",
+      "title": "/deployments/github-pages",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }

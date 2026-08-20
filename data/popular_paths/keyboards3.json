@@ -1,4 +1,17 @@
 {
-  "collected_at": "2026-08-19T23:17:15.336342+00:00",
-  "paths": []
+  "collected_at": "2026-08-20T23:19:51.118411+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/keyboards3",
+      "title": "Overview",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/keyboards3/deployments/github-pages",
+      "title": "/deployments/github-pages",
+      "count": 2,
+      "uniques": 1
+    }
+  ]
 }

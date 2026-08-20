@@ -1,10 +1,10 @@
 {
-  "collected_at": "2026-08-19T23:17:14.294850+00:00",
+  "collected_at": "2026-08-20T23:19:49.231264+00:00",
   "paths": [
     {
       "path": "/audiotesting/Headphones-SK",
       "title": "Overview",
-      "count": 1,
+      "count": 2,
       "uniques": 1
     },
     {
@@ -16,6 +16,18 @@
     {
       "path": "/audiotesting/Headphones-SK/deployments",
       "title": "/deployments",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-SK/graphs/traffic",
+      "title": "/graphs/traffic",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-SK/pulse",
+      "title": "/pulse",
       "count": 1,
       "uniques": 1
     }

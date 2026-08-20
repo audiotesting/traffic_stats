@@ -1,4 +1,10 @@
 {
-  "collected_at": "2026-08-19T23:17:13.379726+00:00",
-  "referrers": []
+  "collected_at": "2026-08-20T23:19:47.573742+00:00",
+  "referrers": [
+    {
+      "referrer": "github.com",
+      "count": 5,
+      "uniques": 1
+    }
+  ]
 }

@@ -1,4 +1,23 @@
 {
-  "collected_at": "2026-08-19T23:17:18.474420+00:00",
-  "paths": []
+  "collected_at": "2026-08-20T23:19:56.497521+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/mice",
+      "title": "Overview",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/mice/graphs/traffic",
+      "title": "/graphs/traffic",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/mice/pulse",
+      "title": "/pulse",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }
