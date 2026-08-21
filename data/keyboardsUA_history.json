@@ -1,7 +1,7 @@
 {
   "repo": "keyboardsUA",
-  "total_views": 0,
-  "total_uniques": 0,
+  "total_views": 3,
+  "total_uniques": 1,
   "daily": {
     "2026-08-04": {
       "views": 0,
@@ -56,6 +56,18 @@
       "uniques": 0
     },
     "2026-08-17": {
+      "views": 0,
+      "uniques": 0
+    },
+    "2026-08-18": {
+      "views": 3,
+      "uniques": 1
+    },
+    "2026-08-19": {
+      "views": 0,
+      "uniques": 0
+    },
+    "2026-08-20": {
       "views": 0,
       "uniques": 0
     }
