@@ -1,16 +1,16 @@
 [
   {
     "repository": "headphones",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 9,
     "unique_visitors_14d": 1,
-    "clones_14d_total": 4,
-    "unique_cloners_14d": 4,
+    "clones_14d_total": 3,
+    "unique_cloners_14d": 3,
     "top_referrer": "github.com"
   },
   {
     "repository": "Headphones-ES",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 4,
     "unique_visitors_14d": 1,
     "clones_14d_total": 5,
@@ -19,16 +19,16 @@
   },
   {
     "repository": "Headphones-IT",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 5,
     "unique_visitors_14d": 1,
-    "clones_14d_total": 4,
-    "unique_cloners_14d": 4,
+    "clones_14d_total": 6,
+    "unique_cloners_14d": 6,
     "top_referrer": "github.com"
   },
   {
     "repository": "Headphones-PL",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 4,
     "unique_visitors_14d": 1,
     "clones_14d_total": 4,
@@ -37,8 +37,8 @@
   },
   {
     "repository": "Headphones-SK",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
-    "views_14d_total": 6,
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
+    "views_14d_total": 3,
     "unique_visitors_14d": 1,
     "clones_14d_total": 6,
     "unique_cloners_14d": 6,
@@ -46,16 +46,16 @@
   },
   {
     "repository": "Headphones-UA",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 3,
     "unique_visitors_14d": 1,
-    "clones_14d_total": 3,
-    "unique_cloners_14d": 3,
+    "clones_14d_total": 4,
+    "unique_cloners_14d": 4,
     "top_referrer": "github.com"
   },
   {
     "repository": "keyboards3",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 4,
     "unique_visitors_14d": 1,
     "clones_14d_total": 3,
@@ -64,16 +64,7 @@
   },
   {
     "repository": "keyboardsESP",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
-    "views_14d_total": 0,
-    "unique_visitors_14d": 0,
-    "clones_14d_total": 3,
-    "unique_cloners_14d": 3,
-    "top_referrer": "N/A"
-  },
-  {
-    "repository": "keyboardsITA",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 4,
@@ -81,8 +72,17 @@
     "top_referrer": "N/A"
   },
   {
+    "repository": "keyboardsITA",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
+    "views_14d_total": 0,
+    "unique_visitors_14d": 0,
+    "clones_14d_total": 3,
+    "unique_cloners_14d": 3,
+    "top_referrer": "N/A"
+  },
+  {
     "repository": "keyboardsPOL",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 4,
     "unique_visitors_14d": 1,
     "clones_14d_total": 2,
@@ -91,25 +91,25 @@
   },
   {
     "repository": "keyboardsSVK",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
-    "views_14d_total": 10,
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
+    "views_14d_total": 7,
     "unique_visitors_14d": 1,
-    "clones_14d_total": 16,
-    "unique_cloners_14d": 10,
+    "clones_14d_total": 5,
+    "unique_cloners_14d": 5,
     "top_referrer": "github.com"
   },
   {
     "repository": "keyboardsUA",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 3,
     "unique_visitors_14d": 1,
-    "clones_14d_total": 2,
-    "unique_cloners_14d": 2,
+    "clones_14d_total": 3,
+    "unique_cloners_14d": 3,
     "top_referrer": "github.com"
   },
   {
     "repository": "mice",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 3,
     "unique_visitors_14d": 1,
     "clones_14d_total": 5,
@@ -118,16 +118,7 @@
   },
   {
     "repository": "miceESP",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
-    "views_14d_total": 0,
-    "unique_visitors_14d": 0,
-    "clones_14d_total": 4,
-    "unique_cloners_14d": 4,
-    "top_referrer": "N/A"
-  },
-  {
-    "repository": "miceITA",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 3,
@@ -135,8 +126,17 @@
     "top_referrer": "N/A"
   },
   {
+    "repository": "miceITA",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
+    "views_14d_total": 0,
+    "unique_visitors_14d": 0,
+    "clones_14d_total": 2,
+    "unique_cloners_14d": 2,
+    "top_referrer": "N/A"
+  },
+  {
     "repository": "micePOL",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 6,
@@ -145,16 +145,16 @@
   },
   {
     "repository": "miceSVK",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
-    "views_14d_total": 6,
-    "unique_visitors_14d": 1,
-    "clones_14d_total": 6,
-    "unique_cloners_14d": 6,
-    "top_referrer": "github.com"
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
+    "views_14d_total": 0,
+    "unique_visitors_14d": 0,
+    "clones_14d_total": 5,
+    "unique_cloners_14d": 5,
+    "top_referrer": "N/A"
   },
   {
     "repository": "miceUA",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 3,
@@ -163,20 +163,20 @@
   },
   {
     "repository": "TestApplications",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 12,
     "unique_visitors_14d": 2,
-    "clones_14d_total": 4,
-    "unique_cloners_14d": 4,
+    "clones_14d_total": 5,
+    "unique_cloners_14d": 5,
     "top_referrer": "github.com"
   },
   {
     "repository": "traffic_stats",
-    "collected_at": "2026-08-27T04:10:45.852879+00:00",
+    "collected_at": "2026-08-28T06:27:28.250868+00:00",
     "views_14d_total": 121,
     "unique_visitors_14d": 1,
-    "clones_14d_total": 118,
-    "unique_cloners_14d": 53,
+    "clones_14d_total": 129,
+    "unique_cloners_14d": 58,
     "top_referrer": "github.com"
   }
 ]
