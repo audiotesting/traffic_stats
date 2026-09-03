@@ -1,23 +1,4 @@
 {
-  "collected_at": "2026-09-02T00:45:45.090742+00:00",
-  "paths": [
-    {
-      "path": "/audiotesting/Headphones-IT",
-      "title": "Overview",
-      "count": 2,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/Headphones-IT/graphs/traffic",
-      "title": "/graphs/traffic",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/Headphones-IT/pulse",
-      "title": "/pulse",
-      "count": 1,
-      "uniques": 1
-    }
-  ]
+  "collected_at": "2026-09-03T00:54:14.179614+00:00",
+  "paths": []
 }
