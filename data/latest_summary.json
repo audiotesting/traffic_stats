@@ -1,16 +1,16 @@
 [
   {
     "repository": "headphones",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
-    "clones_14d_total": 2,
-    "unique_cloners_14d": 2,
+    "clones_14d_total": 1,
+    "unique_cloners_14d": 1,
     "top_referrer": "N/A"
   },
   {
     "repository": "Headphones-ES",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 2,
@@ -19,7 +19,7 @@
   },
   {
     "repository": "Headphones-IT",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 2,
@@ -28,7 +28,7 @@
   },
   {
     "repository": "Headphones-PL",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 4,
@@ -37,7 +37,7 @@
   },
   {
     "repository": "Headphones-SK",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 3,
     "unique_visitors_14d": 1,
     "clones_14d_total": 1,
@@ -46,7 +46,7 @@
   },
   {
     "repository": "Headphones-UA",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 2,
@@ -55,7 +55,7 @@
   },
   {
     "repository": "keyboards3",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 3,
@@ -64,7 +64,7 @@
   },
   {
     "repository": "keyboardsESP",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 5,
@@ -73,7 +73,7 @@
   },
   {
     "repository": "keyboardsITA",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 1,
@@ -82,25 +82,25 @@
   },
   {
     "repository": "keyboardsPOL",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
-    "clones_14d_total": 6,
-    "unique_cloners_14d": 6,
+    "clones_14d_total": 4,
+    "unique_cloners_14d": 4,
     "top_referrer": "N/A"
   },
   {
     "repository": "keyboardsSVK",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
-    "clones_14d_total": 5,
-    "unique_cloners_14d": 5,
+    "clones_14d_total": 3,
+    "unique_cloners_14d": 3,
     "top_referrer": "N/A"
   },
   {
     "repository": "keyboardsUA",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 1,
@@ -109,7 +109,7 @@
   },
   {
     "repository": "mice",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 2,
@@ -118,52 +118,7 @@
   },
   {
     "repository": "miceESP",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
-    "views_14d_total": 0,
-    "unique_visitors_14d": 0,
-    "clones_14d_total": 3,
-    "unique_cloners_14d": 3,
-    "top_referrer": "N/A"
-  },
-  {
-    "repository": "miceITA",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
-    "views_14d_total": 0,
-    "unique_visitors_14d": 0,
-    "clones_14d_total": 3,
-    "unique_cloners_14d": 3,
-    "top_referrer": "N/A"
-  },
-  {
-    "repository": "micePOL",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
-    "views_14d_total": 0,
-    "unique_visitors_14d": 0,
-    "clones_14d_total": 3,
-    "unique_cloners_14d": 3,
-    "top_referrer": "N/A"
-  },
-  {
-    "repository": "miceSVK",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
-    "views_14d_total": 0,
-    "unique_visitors_14d": 0,
-    "clones_14d_total": 3,
-    "unique_cloners_14d": 3,
-    "top_referrer": "N/A"
-  },
-  {
-    "repository": "miceUA",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
-    "views_14d_total": 0,
-    "unique_visitors_14d": 0,
-    "clones_14d_total": 4,
-    "unique_cloners_14d": 4,
-    "top_referrer": "N/A"
-  },
-  {
-    "repository": "TestApplications",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
     "clones_14d_total": 2,
@@ -171,12 +126,57 @@
     "top_referrer": "N/A"
   },
   {
-    "repository": "traffic_stats",
-    "collected_at": "2026-09-17T01:01:09.024620+00:00",
+    "repository": "miceITA",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
     "views_14d_total": 0,
     "unique_visitors_14d": 0,
-    "clones_14d_total": 232,
-    "unique_cloners_14d": 78,
+    "clones_14d_total": 2,
+    "unique_cloners_14d": 2,
+    "top_referrer": "N/A"
+  },
+  {
+    "repository": "micePOL",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
+    "views_14d_total": 0,
+    "unique_visitors_14d": 0,
+    "clones_14d_total": 2,
+    "unique_cloners_14d": 2,
+    "top_referrer": "N/A"
+  },
+  {
+    "repository": "miceSVK",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
+    "views_14d_total": 0,
+    "unique_visitors_14d": 0,
+    "clones_14d_total": 2,
+    "unique_cloners_14d": 2,
+    "top_referrer": "N/A"
+  },
+  {
+    "repository": "miceUA",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
+    "views_14d_total": 0,
+    "unique_visitors_14d": 0,
+    "clones_14d_total": 5,
+    "unique_cloners_14d": 5,
+    "top_referrer": "N/A"
+  },
+  {
+    "repository": "TestApplications",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
+    "views_14d_total": 0,
+    "unique_visitors_14d": 0,
+    "clones_14d_total": 1,
+    "unique_cloners_14d": 1,
+    "top_referrer": "N/A"
+  },
+  {
+    "repository": "traffic_stats",
+    "collected_at": "2026-09-18T00:57:02.010564+00:00",
+    "views_14d_total": 0,
+    "unique_visitors_14d": 0,
+    "clones_14d_total": 242,
+    "unique_cloners_14d": 84,
     "top_referrer": "N/A"
   }
 ]
