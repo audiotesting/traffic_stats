@@ -1,95 +1,95 @@
 {
-  "last_updated": "2026-09-29",
+  "last_updated": "2026-09-30",
   "repos": [
     {
       "repo": "keyboards3",
       "total_views": 4,
       "total_uniques": 1,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "keyboardsESP",
       "total_views": 0,
       "total_uniques": 0,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "keyboardsUA",
       "total_views": 3,
       "total_uniques": 1,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "mice",
       "total_views": 3,
       "total_uniques": 1,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "miceESP",
       "total_views": 0,
       "total_uniques": 0,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "miceITA",
       "total_views": 0,
       "total_uniques": 0,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "micePOL",
-      "total_views": 0,
-      "total_uniques": 0,
-      "days_tracked": 51
+      "total_views": 7,
+      "total_uniques": 1,
+      "days_tracked": 57
     },
     {
       "repo": "miceSVK",
       "total_views": 6,
       "total_uniques": 1,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "miceUA",
       "total_views": 0,
       "total_uniques": 0,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "headphones",
       "total_views": 9,
       "total_uniques": 1,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "Headphones-ES",
       "total_views": 4,
       "total_uniques": 1,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "Headphones-IT",
       "total_views": 5,
       "total_uniques": 1,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "Headphones-PL",
       "total_views": 4,
       "total_uniques": 1,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "Headphones-SK",
       "total_views": 9,
       "total_uniques": 3,
-      "days_tracked": 51
+      "days_tracked": 57
     },
     {
       "repo": "Headphones-UA",
       "total_views": 3,
       "total_uniques": 1,
-      "days_tracked": 51
+      "days_tracked": 57
     }
   ]
 }
