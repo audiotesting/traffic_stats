@@ -1,4 +1,10 @@
 {
-  "collected_at": "2026-10-02T01:55:44.591208+00:00",
-  "referrers": []
+  "collected_at": "2026-10-03T01:38:22.393702+00:00",
+  "referrers": [
+    {
+      "referrer": "Bing",
+      "count": 2,
+      "uniques": 1
+    }
+  ]
 }

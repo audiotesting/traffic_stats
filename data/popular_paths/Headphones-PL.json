@@ -1,4 +1,35 @@
 {
-  "collected_at": "2026-10-02T01:55:44.422715+00:00",
-  "paths": []
+  "collected_at": "2026-10-03T01:38:22.164469+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/Headphones-PL",
+      "title": "Overview",
+      "count": 5,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-PL/issues",
+      "title": "/issues",
+      "count": 4,
+      "uniques": 2
+    },
+    {
+      "path": "/audiotesting/Headphones-PL/commit/eb540c9c0d07cafde24bd5a3ec72726b7fc0c282",
+      "title": "/commit/eb540c9c0d07cafde24bd5a3ec72726b7fc0c282",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-PL/blob/main/index.html",
+      "title": "/blob/main/index.html",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-PL/commits",
+      "title": "/commits",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }
