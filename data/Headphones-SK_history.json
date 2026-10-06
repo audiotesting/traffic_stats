@@ -1,7 +1,7 @@
 {
   "repo": "Headphones-SK",
-  "total_views": 9,
-  "total_uniques": 3,
+  "total_views": 15,
+  "total_uniques": 4,
   "daily": {
     "2026-08-04": {
       "views": 0,
@@ -250,6 +250,10 @@
     "2026-10-04": {
       "views": 0,
       "uniques": 0
+    },
+    "2026-10-05": {
+      "views": 6,
+      "uniques": 1
     }
   }
 }
