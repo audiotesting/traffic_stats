@@ -1,4 +1,11 @@
 {
-  "collected_at": "2026-10-06T02:38:24.478587+00:00",
-  "paths": []
+  "collected_at": "2026-10-07T01:58:13.036301+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/Headphones-SK/issues",
+      "title": "/issues",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }
