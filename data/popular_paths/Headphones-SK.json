@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-20T01:27:00.638360+00:00",
+  "collected_at": "2026-10-21T01:11:18.359069+00:00",
   "paths": [
     {
       "path": "/audiotesting/Headphones-SK/commit/07b27abef0f1a0cb04f0588d6c59aff126295a50",
@@ -22,12 +22,6 @@
     {
       "path": "/audiotesting/Headphones-SK/deployments/github-pages",
       "title": "/deployments/github-pages",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/Headphones-SK/issues",
-      "title": "/issues",
       "count": 1,
       "uniques": 1
     },
