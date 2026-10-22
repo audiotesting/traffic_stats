@@ -1,41 +1,4 @@
 {
-  "collected_at": "2026-10-21T01:11:18.359069+00:00",
-  "paths": [
-    {
-      "path": "/audiotesting/Headphones-SK/commit/07b27abef0f1a0cb04f0588d6c59aff126295a50",
-      "title": "/commit/07b27abef0f1a0cb04f0588d6c59aff126295a50",
-      "count": 3,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/Headphones-SK/actions",
-      "title": "/actions",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/Headphones-SK/branches",
-      "title": "/branches",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/Headphones-SK/deployments/github-pages",
-      "title": "/deployments/github-pages",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/Headphones-SK/upload",
-      "title": "/upload",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/Headphones-SK/upload/main",
-      "title": "/upload/main",
-      "count": 1,
-      "uniques": 1
-    }
-  ]
+  "collected_at": "2026-10-22T01:08:33.283425+00:00",
+  "paths": []
 }
