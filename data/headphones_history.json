@@ -1,7 +1,7 @@
 {
   "repo": "headphones",
-  "total_views": 9,
-  "total_uniques": 1,
+  "total_views": 25,
+  "total_uniques": 4,
   "daily": {
     "2026-08-04": {
       "views": 0,
@@ -334,6 +334,10 @@
     "2026-10-25": {
       "views": 0,
       "uniques": 0
+    },
+    "2026-10-26": {
+      "views": 16,
+      "uniques": 3
     }
   }
 }

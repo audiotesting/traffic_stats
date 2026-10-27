@@ -1,7 +1,7 @@
 {
   "repo": "Headphones-PL",
-  "total_views": 17,
-  "total_uniques": 3,
+  "total_views": 19,
+  "total_uniques": 4,
   "daily": {
     "2026-08-04": {
       "views": 0,
@@ -334,6 +334,10 @@
     "2026-10-25": {
       "views": 0,
       "uniques": 0
+    },
+    "2026-10-26": {
+      "views": 2,
+      "uniques": 1
     }
   }
 }
