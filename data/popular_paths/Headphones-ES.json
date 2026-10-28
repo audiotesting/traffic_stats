@@ -1,4 +1,23 @@
 {
-  "collected_at": "2026-10-27T01:46:16.692829+00:00",
-  "paths": []
+  "collected_at": "2026-10-28T01:58:29.942183+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/Headphones-ES",
+      "title": "Overview",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-ES/blob/main/index.html",
+      "title": "/blob/main/index.html",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-ES/edit/main/index.html",
+      "title": "/edit/main/index.html",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }

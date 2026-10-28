@@ -1,4 +1,23 @@
 {
-  "collected_at": "2026-10-27T01:46:19.065166+00:00",
-  "paths": []
+  "collected_at": "2026-10-28T01:58:33.005349+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/Headphones-SK/actions",
+      "title": "/actions",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-SK/deployments",
+      "title": "/deployments",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-SK",
+      "title": "Overview",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }

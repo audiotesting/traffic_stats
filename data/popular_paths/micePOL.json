@@ -1,4 +1,11 @@
 {
-  "collected_at": "2026-10-27T01:46:27.747849+00:00",
-  "paths": []
+  "collected_at": "2026-10-28T01:58:43.827617+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/micePOL",
+      "title": "Overview",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }

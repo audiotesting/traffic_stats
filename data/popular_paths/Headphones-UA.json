@@ -1,4 +1,17 @@
 {
-  "collected_at": "2026-10-27T01:46:19.839945+00:00",
-  "paths": []
+  "collected_at": "2026-10-28T01:58:34.032803+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/Headphones-UA/actions",
+      "title": "/actions",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-UA/edit/main/index.html",
+      "title": "/edit/main/index.html",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }
