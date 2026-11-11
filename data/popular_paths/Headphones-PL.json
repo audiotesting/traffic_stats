@@ -1,17 +1,4 @@
 {
-  "collected_at": "2026-11-10T04:27:24.159741+00:00",
-  "paths": [
-    {
-      "path": "/audiotesting/Headphones-PL",
-      "title": "Overview",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/Headphones-PL/blob/main/index.html",
-      "title": "/blob/main/index.html",
-      "count": 1,
-      "uniques": 1
-    }
-  ]
+  "collected_at": "2026-11-11T02:28:13.674236+00:00",
+  "paths": []
 }

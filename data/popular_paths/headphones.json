@@ -1,47 +1,4 @@
 {
-  "collected_at": "2026-11-10T04:27:21.369665+00:00",
-  "paths": [
-    {
-      "path": "/audiotesting/headphones/blob/main/index.html",
-      "title": "/blob/main/index.html",
-      "count": 5,
-      "uniques": 3
-    },
-    {
-      "path": "/audiotesting/headphones",
-      "title": "Overview",
-      "count": 4,
-      "uniques": 2
-    },
-    {
-      "path": "/audiotesting/headphones/actions",
-      "title": "/actions",
-      "count": 2,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/headphones/deployments",
-      "title": "/deployments",
-      "count": 2,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/headphones/commits",
-      "title": "/commits",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/headphones/edit/main/index.html",
-      "title": "/edit/main/index.html",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "path": "/audiotesting/headphones/tree/main",
-      "title": "/tree/main",
-      "count": 1,
-      "uniques": 1
-    }
-  ]
+  "collected_at": "2026-11-11T02:28:12.402609+00:00",
+  "paths": []
 }
