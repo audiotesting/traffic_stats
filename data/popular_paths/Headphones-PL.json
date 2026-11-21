@@ -1,4 +1,17 @@
 {
-  "collected_at": "2026-11-20T03:49:27.882598+00:00",
-  "paths": []
+  "collected_at": "2026-11-21T03:41:54.300186+00:00",
+  "paths": [
+    {
+      "path": "/audiotesting/Headphones-PL",
+      "title": "Overview",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "path": "/audiotesting/Headphones-PL/commit/9175a1768cd066ae0f0304f6dd22100544ce97b9",
+      "title": "/commit/9175a1768cd066ae0f0304f6dd22100544ce97b9",
+      "count": 1,
+      "uniques": 1
+    }
+  ]
 }
